@@ -105,6 +105,11 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   { path: '**', component: NotFoundComponent },
+  {
+    path: 'dashboard',
+    redirectTo: '/dashboard/',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
