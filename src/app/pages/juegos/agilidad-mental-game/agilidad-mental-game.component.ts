@@ -17,7 +17,7 @@ export class AgilidadMentalGameComponent implements OnInit {
   public numeroUsuario = '';
   public timer;
   public user;
-
+  public toggle;
   public segundos;
   public perdiste;
 
@@ -26,6 +26,7 @@ export class AgilidadMentalGameComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private userService: UserService) {}
 
   ngOnInit() {
+    this.toggle = true;
     this.userService.isLoggedIn().subscribe(user => {
       if (user) {
         this.userService.getUser(user.uid).subscribe(userData => {
@@ -42,6 +43,7 @@ export class AgilidadMentalGameComponent implements OnInit {
     this.perdiste = false;
     this.Timer();
     this.HacerCuenta();
+    this.toggle = false;
   }
 
   HacerCuenta() {

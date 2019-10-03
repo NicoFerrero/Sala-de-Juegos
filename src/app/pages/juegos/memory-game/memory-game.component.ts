@@ -24,10 +24,12 @@ export class MemoryGameComponent implements OnInit {
   public segundos;
   public perdiste;
   public user;
+  public toggle;
 
   constructor(private snackBar: MatSnackBar, private userService: UserService) {}
 
   ngOnInit() {
+    this.toggle = true;
     this.userService.isLoggedIn().subscribe(user => {
       if (user) {
         this.userService.getUser(user.uid).subscribe(userData => {
@@ -47,6 +49,7 @@ export class MemoryGameComponent implements OnInit {
     this.perdiste = false;
     this.segundos = 20;
     this.Timer();
+    this.toggle = !this.toggle;
 
     for (let i = 0; i < 4 * 2; i++) {
       if (countIndex === 4) {

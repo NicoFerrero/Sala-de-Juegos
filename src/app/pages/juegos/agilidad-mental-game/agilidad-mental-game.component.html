@@ -17,9 +17,10 @@
       *ngIf="!perdiste"
       (click)="EmpezarJuego()"
       mat-flat-button
-      color="accent"
+      color="primary"
       style="margin-bottom: 10px;"
       [disabled]="!user"
+      [ngStyle]="{ display: !toggle ? 'none' : 'block' }"
     >
       Empezar Juego
     </button>

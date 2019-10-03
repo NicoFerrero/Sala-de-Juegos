@@ -20,6 +20,7 @@
       mat-flat-button
       color="primary"
       [disabled]="!user"
+      [ngStyle]="{ display: !toggle ? 'none' : 'block' }"
     >
       Empezar Juego
     </button>
