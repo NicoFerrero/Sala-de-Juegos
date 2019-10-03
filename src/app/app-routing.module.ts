@@ -12,35 +12,97 @@ import { AnagramaGameComponent } from './pages/juegos/anagrama-game/anagrama-gam
 import { PptGameComponent } from './pages/juegos/ppt-game/ppt-game.component';
 import { BoardComponent } from './pages/juegos/tateti-game/board/board.component';
 import { PuntuacionComponent } from './pages/puntuacion/puntuacion/puntuacion.component';
-import { redirectUnauthorizedTo, canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import {
+  redirectUnauthorizedTo,
+  canActivate,
+  redirectLoggedInTo,
+  AngularFireAuthGuard,
+} from '@angular/fire/auth-guard';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 
-const redirectUnauthorizedToLogin = redirectUnauthorizedTo(['home']);
-const redirectLoggedInToItems = redirectLoggedInTo(['dashboard']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['home']);
+const redirectLoggedInToItems = () => redirectLoggedInTo(['dashboard']);
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: PrincipalComponent, ...canActivate(redirectLoggedInToItems) },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'perfil', component: PerfilComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  {
+    path: 'home',
+    component: PrincipalComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToItems },
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToItems },
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToItems },
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
   {
     path: 'dashboard',
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'memoria', component: MemoryGameComponent },
-      { path: 'adivinar-numero', component: AdivinarNumeroGameComponent },
-      { path: 'agilidad-mental', component: AgilidadMentalGameComponent },
-      { path: 'anagrama', component: AnagramaGameComponent },
-      { path: 'piedra-papel-tijera', component: PptGameComponent },
-      { path: 'ta-te-ti', component: BoardComponent },
+      {
+        path: '',
+        component: DashboardComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'memoria',
+        component: MemoryGameComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'adivinar-numero',
+        component: AdivinarNumeroGameComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'agilidad-mental',
+        component: AgilidadMentalGameComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'anagrama',
+        component: AnagramaGameComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'piedra-papel-tijera',
+        component: PptGameComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
+      {
+        path: 'ta-te-ti',
+        component: BoardComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+      },
     ],
-    ...canActivate(redirectUnauthorizedToLogin),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'puntuacion',
     component: PuntuacionComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   { path: '**', component: NotFoundComponent },
 ];
