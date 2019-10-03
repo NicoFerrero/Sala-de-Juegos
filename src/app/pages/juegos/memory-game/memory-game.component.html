@@ -1,0 +1,30 @@
+<div class="cards-container">
+  <span *ngFor="let card of cards; index as i">
+    <img
+      class="img-card"
+      src="{{ card.visible ? card.url : imagesInact }}"
+      (click)="CardSelected(i)"
+    />
+  </span>
+</div>
+<div class="mat-elevation-z8 container">
+  <div class="puntaje">
+    <span>Puntos: {{ puntos }}</span>
+
+    <span>Tiempo restante: {{ segundos }}</span>
+  </div>
+  <div class="botones">
+    <button
+      *ngIf="!perdiste"
+      (click)="IniciarJuego()"
+      mat-flat-button
+      color="primary"
+      [disabled]="!user"
+    >
+      Empezar Juego
+    </button>
+    <button *ngIf="perdiste" (click)="IniciarJuego()" mat-flat-button color="accent">
+      Volver a jugar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+form {
+  position: absolute;
+  border: 1px solid rgb(126, 119, 119);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  transform: translate(-50%, -50%);
+  background-color: rgb(164, 168, 173);
+}
+
+mat-form-field {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 80%;
+  margin-top: 20px;
+}
+
+::ng-deep .error {
+  color: rgb(230, 55, 55);
+}

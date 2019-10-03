@@ -1,0 +1,11 @@
+<div class="container" *ngIf="datos">
+  <p>Tabla de puntuaciones</p>
+  <app-tabla [ELEMENT_DATA]="datos"></app-tabla>
+</div>
+<mat-spinner
+  class="spinner"
+  *ngIf="!datos"
+  color="warn"
+  mode="indeterminate"
+  value="50"
+></mat-spinner>

@@ -1,0 +1,39 @@
+<div class="mat-elevation-z8 container">
+  <div class="puntaje">
+    <span>Puntos: {{ puntos }}</span>
+
+    <span>Tiempo restante: {{ segundos }}</span>
+  </div>
+  <div>
+    <strong
+      ><span>{{ cuenta }}</span></strong
+    >
+  </div>
+  <div class="botones">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="numeroUsuario" #input autofocus />
+    </mat-form-field>
+    <button
+      *ngIf="!perdiste"
+      (click)="EmpezarJuego()"
+      mat-flat-button
+      color="accent"
+      style="margin-bottom: 10px;"
+      [disabled]="!user"
+    >
+      Empezar Juego
+    </button>
+    <button
+      *ngIf="!perdiste"
+      (click)="Calcular()"
+      mat-flat-button
+      color="primary"
+      [disabled]="numeroUsuario === ''"
+    >
+      Calcular
+    </button>
+    <button *ngIf="perdiste" (click)="EmpezarJuego()" mat-flat-button color="accent">
+      Volver a jugar
+    </button>
+  </div>
+</div>

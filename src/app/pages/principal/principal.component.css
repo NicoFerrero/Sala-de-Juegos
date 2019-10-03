@@ -1,0 +1,112 @@
+.hero,
+.game1,
+.game2,
+.game3,
+.game4,
+.game5,
+.game6 {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  opacity: 0.9;
+  background-attachment: fixed;
+}
+
+.footer {
+  height: 7vh;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgb(104, 100, 100);
+}
+
+.footer p {
+  margin: 0;
+  padding: 0;
+}
+
+.game1 {
+  background-image: url('../../../assets/anagrama_principal.jpg');
+  min-height: 500px;
+}
+
+.game2 {
+  background-image: url('../../../assets/adivinar_principal.jpg');
+  min-height: 500px;
+}
+
+.game3 {
+  background-image: url('../../../assets/agilidad_principal.jpg');
+  min-height: 500px;
+}
+
+.game4 {
+  background-image: url('../../../assets/ppt_principal.jpg');
+  min-height: 500px;
+}
+
+.game5 {
+  background-image: url('../../../assets/ttt_principal.jpg');
+  min-height: 500px;
+}
+
+.game6 {
+  background-image: url('../../../assets/memoria_principal.jpg');
+  min-height: 500px;
+}
+
+.hero {
+  background-image: url('../../../assets/black-background-chance-close-up-1111597.jpg');
+  min-height: 100vh;
+}
+
+p {
+  text-align: center;
+  padding: 36px 80px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 60%;
+  border-color: rgb(104, 100, 100);
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 2.5px;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 37px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgb(219, 201, 203);
+}
+
+.bright {
+  color: rgb(92, 68, 71);
+}
+
+.dark {
+  color: rgb(219, 201, 203);
+}
+
+@media screen and (max-width: 768px) {
+  .hero,
+  .game1,
+  .game2,
+  .game3,
+  .game4,
+  .game5,
+  .game6 {
+    background-attachment: scroll;
+  }
+}

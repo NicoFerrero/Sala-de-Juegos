@@ -1,0 +1,20 @@
+<div class="mat-elevation-z8 container">
+  <div class="info">
+    <div class="puntos">
+      <p>Jugador: {{ player }}</p>
+      <p>Ha ganado {{ contador }} vez/veces.</p>
+    </div>
+
+    <p *ngIf="winner">Player {{ winner }} won the game</p>
+  </div>
+
+  <div class="grid" *ngIf="user">
+    <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"
+      >7</app-square
+    >
+  </div>
+
+  <button *ngIf="perdiste" mat-flat-button color="accent" (click)="newGame()">
+    Volver a Jugar
+  </button>
+</div>

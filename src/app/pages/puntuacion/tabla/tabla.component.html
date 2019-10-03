@@ -1,0 +1,50 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre | titlecase }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="adivina_num">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Adivina Num.</th>
+      <td mat-cell *matCellDef="let element">{{ element.adivina_num }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="agilidad_ari">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Agilidad Ari.</th>
+      <td mat-cell *matCellDef="let element">{{ element.agilidad_ari }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="anagrama">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Anagrama</th>
+      <td mat-cell *matCellDef="let element">{{ element.anagrama }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="memoria">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Memoria</th>
+      <td mat-cell *matCellDef="let element">{{ element.memoria }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ppt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PPT</th>
+      <td mat-cell *matCellDef="let element">{{ element.ppt }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ttt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TTT</th>
+      <td mat-cell *matCellDef="let element">{{ element.ttt }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="disclaimer">
+      <td mat-footer-cell *matFooterCellDef colspan="7">
+        Estos valores corresponden a las victorias en cada juego.
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="['disclaimer']" class="example-second-footer-row"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

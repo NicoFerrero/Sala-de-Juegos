@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8 container">
+  <div class="puntaje">
+    <span>Puntos: {{ puntos }}</span>
+
+    <span>Intentos restantes: {{ intentosRestantes }}</span>
+  </div>
+  <div>
+    <strong
+      ><span>Palabra random: {{ palabraRandom }}</span></strong
+    >
+  </div>
+  <div class="botones">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="palabraUsuario" autofocus />
+    </mat-form-field>
+    <button
+      *ngIf="!perdiste"
+      (click)="VerficarPalabra()"
+      mat-flat-button
+      color="primary"
+      [disabled]="!user"
+    >
+      Verificar
+    </button>
+    <button *ngIf="perdiste" (click)="EmpezarJuego()" mat-flat-button color="accent">
+      Volver a jugar
+    </button>
+  </div>
+</div>

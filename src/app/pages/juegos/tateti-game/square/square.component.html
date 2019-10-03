@@ -1,0 +1,9 @@
+<button mat-flat-button color="primary" [disableRipple]="true" *ngIf="!value">
+  {{ value }}
+</button>
+<button mat-flat-button color="accent" [disableRipple]="true" *ngIf="value === 'X'">
+  {{ value }}
+</button>
+<button mat-flat-button color="warn" [disableRipple]="true" *ngIf="value === 'O'">
+  {{ value }}
+</button>

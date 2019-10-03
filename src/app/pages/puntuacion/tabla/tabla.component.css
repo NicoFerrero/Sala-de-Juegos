@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.example-second-footer-row td {
+  color: #900000;
+}

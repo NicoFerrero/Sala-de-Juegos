@@ -1,0 +1,54 @@
+.container {
+  width: 30%;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(164, 168, 173);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+app-square {
+  border: 1px gray solid;
+  height: 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 0px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .error {
+  color: rgb(230, 55, 55);
+}
+
+::ng-deep .success {
+  color: rgb(96, 230, 55);
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    width: 91%;
+    right: -42%;
+    top: 50%;
+  }
+}
+
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .container {
+    width: 70%;
+    right: -20%;
+    top: 50%;
+  }
+}

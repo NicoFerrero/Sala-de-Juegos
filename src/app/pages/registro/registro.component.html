@@ -1,0 +1,48 @@
+<form [formGroup]="registroForm" (ngSubmit)="onRegistro()" class="mat-elevation-z8">
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Nombre"
+      name="nombre"
+      formControlName="nombre"
+      required
+    />
+    <mat-error>Campo no valido</mat-error> </mat-form-field
+  ><mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Apellido"
+      name="apellido"
+      formControlName="apellido"
+      required
+    />
+    <mat-error>Campo no valido</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="email"
+      placeholder="Email"
+      name="email"
+      formControlName="email"
+      required
+    />
+    <mat-error>Email no valido</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      name="pass"
+      formControlName="pass"
+      required
+    />
+    <mat-error>Contraseña no valida</mat-error>
+  </mat-form-field>
+  <button [disabled]="registroForm?.invalid" mat-flat-button color="primary">
+    Registrarse
+  </button>
+</form>

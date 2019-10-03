@@ -1,0 +1,20 @@
+<div class="mat-elevation-z8 container">
+  <div>
+    <p>Eleccion de la maquina</p>
+    <p><img [src]="imagenMaquina" class="imgElegirMaquina" /></p>
+  </div>
+  <div class="elegir">
+    <button (click)="Elegir(1)" class="botonInvisible" [disabled]="!user">
+      <img src="../../assets/piedra.png" class="imgElegir" />
+    </button>
+    <button (click)="Elegir(2)" class="botonInvisible" [disabled]="!user">
+      <img src="../../assets/papel.png" class="imgElegir" />
+    </button>
+    <button (click)="Elegir(3)" class="botonInvisible" [disabled]="!user">
+      <img src="../../assets/tijera.png" class="imgElegir" />
+    </button>
+  </div>
+  <div class="botones">
+    <p>Ha ganado {{ contador }} vez/veces.</p>
+  </div>
+</div>

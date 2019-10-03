@@ -1,0 +1,46 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mat-elevation-z8">
+  <mat-form-field>
+    <input
+      matInput
+      type="email"
+      placeholder="Email"
+      name="email"
+      formControlName="email"
+      required
+    />
+    <mat-error>Email no valido</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      #pass
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      placeholder="Password"
+      name="pass"
+      formControlName="pass"
+      required
+      maxlength="12"
+      minlength="6"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+      (click)="preventDefault($event)"
+    >
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-hint align="end">{{ pass.value?.length || 0 }}/12</mat-hint>
+    <mat-hint>La contraseña debe tener entre 6 y 12 caracteres</mat-hint>
+    <mat-error>Contraseña no valida</mat-error>
+  </mat-form-field>
+  <button [disabled]="loginForm?.invalid" mat-flat-button color="primary">
+    Login
+  </button>
+  <button mat-flat-button color="warn" (click)="googleLogin($event)">
+    Login with Goggle
+  </button>
+  <mat-hint>Debe linkear previemnete una cuenta de google</mat-hint>
+</form>

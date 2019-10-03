@@ -1,0 +1,35 @@
+.btn {
+  display: block;
+  width: 100%;
+}
+
+.grid {
+  padding: 2rem;
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 7%;
+  right: 10%;
+}
+
+.grid > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 0.2fr));
+  list-style: none;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.grid > ul > li {
+  border: 1px solid #e2e2e2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.grid > ul > li:hover {
+  transform: scale(1.1);
+  transition: all 0.7s ease-in-out;
+}

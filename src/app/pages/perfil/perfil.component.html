@@ -1,0 +1,93 @@
+<div class="mat-elevation-z8 container" *ngIf="user">
+  <div class="info">
+    <p>Nombre de Jugador: {{ currentUser.displayName | titlecase }}</p>
+    <p>Email: {{ currentUser.email }}</p>
+  </div>
+  <div class="estadisticas">
+    <div class="flex">
+      <p>Porcentaje de victoria adivinar numero</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasAdivinar"
+        [color]="getColor(ganadasAdivinar)"
+        style="margin-left: 40px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasAdivinar | number: '2.2-2' }}%</p>
+    </div>
+    <div class="flex">
+      <p>Porcentaje de victoria agilidad aritmetica</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasAgilidad"
+        [color]="getColor(ganadasAgilidad)"
+        style="margin-left: 22px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasAgilidad | number: '2.2-2' }}%</p>
+    </div>
+    <div class="flex">
+      <p>Porcentaje de victoria anagrama</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasAnagrama"
+        [color]="getColor(ganadasAnagrama)"
+        style="margin-left: 82px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasAnagrama | number: '2.2-2' }}%</p>
+    </div>
+    <div class="flex">
+      <p>Porcentaje de victoria memoria</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasMemoria"
+        [color]="getColor(ganadasMemoria)"
+        style="margin-left: 91px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasMemoria | number: '2.2-2' }}%</p>
+    </div>
+    <div class="flex">
+      <p>Porcentaje de victoria ta te ti</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasTateti"
+        [color]="getColor(ganadasTateti)"
+        style="margin-left: 109px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasTateti | number: '2.2-2' }}%</p>
+    </div>
+    <div class="flex">
+      <p>Porcentaje de victoria piedra papel tijera</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="ganadasPpt"
+        [color]="getColor(ganadasPpt)"
+        style="margin-left: 28px;"
+      ></mat-progress-bar>
+      <p>{{ ganadasPpt | number: '2.2-2' }}%</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <button
+      mat-flat-button
+      color="accent"
+      (click)="linkGoogleAccount()"
+      [disabled]="linkedAccount()"
+    >
+      Link Google Account
+    </button>
+    <button
+      mat-flat-button
+      color="warn"
+      (click)="unlinkGoogleAccount()"
+      [disabled]="!linkedAccount()"
+    >
+      Unlink Google Account
+    </button>
+  </div>
+</div>
+<mat-spinner
+  class="spinner"
+  *ngIf="!user"
+  color="warn"
+  mode="indeterminate"
+  value="50"
+></mat-spinner>

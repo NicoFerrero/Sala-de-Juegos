@@ -1,0 +1,30 @@
+<div class="mat-elevation-z8 container">
+  <div class="puntaje">
+    <span>Puntos: {{ puntos }}</span>
+    <span>Intentos restantes: {{ intentosRestantes }}</span>
+  </div>
+  <div class="botones">
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Escribe el número que pensaste..."
+        min="1"
+        max="100"
+        [(ngModel)]="numeroUsuario"
+      />
+    </mat-form-field>
+    <button
+      *ngIf="!perdiste"
+      (click)="Adivinar()"
+      mat-flat-button
+      color="primary"
+      [disabled]="!user"
+    >
+      Adivinar
+    </button>
+    <button *ngIf="perdiste" (click)="EmpezarJuego()" mat-flat-button color="accent">
+      Volver a jugar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+div {
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  background-image: url('../../../assets/404.png');
+  background-color: beige;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+button {
+  position: absolute;
+  top: 80%;
+  right: 20%;
+  z-index: 1000;
+  width: 60%;
+}
