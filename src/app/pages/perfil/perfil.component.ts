@@ -20,7 +20,6 @@ export class PerfilComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.currentUser = this.userService.currentUser();
-    console.log(this.currentUser.providerData);
     this.userService.getUser(this.currentUser.uid).subscribe(data => {
       this.user = data;
       this.ganadasAdivinar = (this.user.adivina_num * 100) / this.user.adivina_num_tot;

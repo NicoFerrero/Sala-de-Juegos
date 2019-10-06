@@ -14,7 +14,7 @@
     >
   </div>
 
-  <button *ngIf="perdiste" mat-flat-button color="accent" (click)="newGame()">
+  <button *ngIf="perdiste || movimientos === 9" mat-flat-button color="accent" (click)="newGame()">
     Volver a Jugar
   </button>
 </div>

@@ -15,6 +15,7 @@ export class BoardComponent implements OnInit {
   public gano = false;
   public user;
   public perdiste;
+  public movimientos;
 
   constructor(private snackBar: MatSnackBar, private userService: UserService) {}
 
@@ -35,6 +36,7 @@ export class BoardComponent implements OnInit {
     this.xIsNext = true;
     this.gano = false;
     this.perdiste = false;
+    this.movimientos = 0;
   }
 
   get player() {
@@ -48,6 +50,7 @@ export class BoardComponent implements OnInit {
         this.xIsNext = !this.xIsNext;
       }
     }
+    this.movimientos++;
 
     this.winner = this.calculateWinner();
     if (this.winner === 'X' && !this.gano) {
@@ -59,6 +62,10 @@ export class BoardComponent implements OnInit {
       this.perdiste = true;
     } else if (this.winner === 'O' && !this.gano) {
       this.openSnackBar('Has perdido', 'Dismiss', 'error');
+      this.user.ttt_tot++;
+      this.perdiste = true;
+    } else if (this.movimientos === 9) {
+      this.openSnackBar('Han empatado', 'Dismiss', 'warning');
       this.user.ttt_tot++;
       this.perdiste = true;
     }

@@ -50,7 +50,11 @@ export class AdivinarNumeroGameComponent implements OnInit {
       this.intentosRestantes--;
 
       if (this.intentosRestantes < 1) {
-        this.openSnackBar('Has perdido', 'Dismiss', 'error');
+        this.openSnackBar(
+          'Has perdido, El numero era el ' + this.numeroMisterioso,
+          'Dismiss',
+          'error',
+        );
         this.user.adivina_num_tot++;
         this.perdiste = true;
       }

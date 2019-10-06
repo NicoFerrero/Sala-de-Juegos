@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 
@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './memory-game.component.html',
   styleUrls: ['./memory-game.component.css'],
 })
-export class MemoryGameComponent implements OnInit {
+export class MemoryGameComponent implements OnInit, OnDestroy {
   private images = [
     { id: 1, url: '../../../../assets/10.png' },
     { id: 2, url: '../../../../assets/J.png' },
@@ -39,6 +39,10 @@ export class MemoryGameComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    clearInterval(this.timer);
+  }
+
   public IniciarJuego() {
     this.cards = [];
     this.lastSelectId = null;
@@ -49,7 +53,7 @@ export class MemoryGameComponent implements OnInit {
     this.perdiste = false;
     this.segundos = 20;
     this.Timer();
-    this.toggle = !this.toggle;
+    this.toggle = false;
 
     for (let i = 0; i < 4 * 2; i++) {
       if (countIndex === 4) {
@@ -70,42 +74,44 @@ export class MemoryGameComponent implements OnInit {
   }
 
   public CardSelected(idx) {
-    if (!this.cards[idx].active) {
-      return;
-    }
-    this.cards[idx].visible = true;
-
-    if (this.lastSelectId == null) {
-      this.lastSelectId = idx;
+    if (!this.perdiste) {
+      if (!this.cards[idx].active) {
+        return;
+      }
       this.cards[idx].visible = true;
-      this.cards[idx].active = false;
-    } else {
-      if (this.cards[this.lastSelectId].id === this.cards[idx].id) {
-        // Si coinciden, se aumentan los aciertos
-        this.countAciertos = this.countAciertos + 1;
+
+      if (this.lastSelectId == null) {
+        this.lastSelectId = idx;
         this.cards[idx].visible = true;
         this.cards[idx].active = false;
-        this.lastSelectId = null;
       } else {
-        // Si no hacen pareja, oculto las cartas luego de esperar medio segundo
-        setTimeout(() => {
-          this.cards[this.lastSelectId].visible = false; // Ocultar
-          this.cards[this.lastSelectId].active = true; // Activar
-          this.cards[idx].visible = false;
+        if (this.cards[this.lastSelectId].id === this.cards[idx].id) {
+          // Si coinciden, se aumentan los aciertos
+          this.countAciertos = this.countAciertos + 1;
+          this.cards[idx].visible = true;
+          this.cards[idx].active = false;
           this.lastSelectId = null;
-        }, 0.5 * 1000);
+        } else {
+          // Si no hacen pareja, oculto las cartas luego de esperar medio segundo
+          setTimeout(() => {
+            this.cards[this.lastSelectId].visible = false; // Ocultar
+            this.cards[this.lastSelectId].active = true; // Activar
+            this.cards[idx].visible = false;
+            this.lastSelectId = null;
+          }, 0.5 * 1000);
+        }
       }
+      if (4 === this.countAciertos) {
+        this.openSnackBar('Bien!, has ganado!', 'Dismiss', 'success');
+        this.user.memoria++;
+        this.user.memoria_tot++;
+        this.perdiste = true;
+        this.puntos++;
+        // console.log(this.msgResultado);
+        clearInterval(this.timer);
+      }
+      this.userService.updateUser(this.user);
     }
-    if (4 === this.countAciertos) {
-      this.openSnackBar('Bien!, has ganado!', 'Dismiss', 'success');
-      this.user.memoria++;
-      this.user.memoria_tot++;
-      this.perdiste = true;
-      this.puntos++;
-      // console.log(this.msgResultado);
-      clearInterval(this.timer);
-    }
-    this.userService.updateUser(this.user);
   }
 
   RandomArray(array) {

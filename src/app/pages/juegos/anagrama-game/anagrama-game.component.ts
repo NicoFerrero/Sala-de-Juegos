@@ -99,7 +99,7 @@ export class AnagramaGameComponent implements OnInit {
   }
 
   VerficarPalabra() {
-    if (this.palabraUsuario === this.palabraSeleccionada) {
+    if (this.palabraUsuario.toLowerCase() === this.palabraSeleccionada.toLowerCase()) {
       this.openSnackBar('Bien!, esa era la palabra!', 'Dismiss', 'success');
       this.user.anagrama++;
       this.user.anagrama_tot++;
@@ -121,7 +121,11 @@ export class AnagramaGameComponent implements OnInit {
   GameOver() {
     this.perdiste = true;
     this.user.anagrama_tot++;
-    this.openSnackBar('Has perdido', 'Dismiss', 'error');
+    this.openSnackBar(
+      'Has perdido, la palabra era ' + this.palabraSeleccionada,
+      'Dismiss',
+      'error',
+    );
   }
 
   private openSnackBar(message: string, action: string, hasError: string) {

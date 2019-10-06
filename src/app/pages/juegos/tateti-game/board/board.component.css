@@ -37,6 +37,10 @@ app-square {
   color: rgb(96, 230, 55);
 }
 
+::ng-deep .warning {
+  color: rgb(230, 227, 55);
+}
+
 @media screen and (max-width: 780px) {
   .container {
     width: 91%;

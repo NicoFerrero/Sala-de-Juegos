@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 
@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './agilidad-mental-game.component.html',
   styleUrls: ['./agilidad-mental-game.component.css'],
 })
-export class AgilidadMentalGameComponent implements OnInit {
+export class AgilidadMentalGameComponent implements OnInit, OnDestroy {
   public puntos;
   public operador: number;
   public numero1: number;
@@ -34,6 +34,10 @@ export class AgilidadMentalGameComponent implements OnInit {
         });
       }
     });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.timer);
   }
 
   EmpezarJuego() {
