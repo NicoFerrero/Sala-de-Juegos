@@ -10,7 +10,6 @@ import { Router } from "@angular/router";
 export class NavBarComponent implements OnInit {
   burger: HTMLDivElement;
   nav: HTMLUListElement;
-  navLinks: NodeListOf<HTMLLIElement>;
   user = null;
 
   constructor(private userService: UserService, private router: Router) {}
@@ -18,9 +17,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.burger = document.querySelector(".burger") as HTMLDivElement;
     this.nav = document.querySelector(".nav-links") as HTMLUListElement;
-    this.navLinks = document.querySelectorAll(".nav-links li") as NodeListOf<
-      HTMLLIElement
-    >;
     this.userService.isLoggedIn().subscribe(
       data => {
         this.user = data;
@@ -31,15 +27,6 @@ export class NavBarComponent implements OnInit {
 
   toggleMenu() {
     this.nav.classList.toggle("nav-active");
-
-    this.navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = "";
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 +
-          0.5}s`;
-      }
-    });
 
     this.burger.classList.toggle("toggle");
   }

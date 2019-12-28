@@ -16,9 +16,9 @@
 
 .container {
   width: 30%;
-  height: 600px;
+  height: 500px;
   position: absolute;
-  top: 50%;
+  top: 56%;
   right: 20%;
   transform: translate(-50%, -50%);
   background-color: rgb(164, 168, 173);
@@ -63,18 +63,18 @@ span {
   display: flex;
 }
 
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .container {
+    width: 60%;
+    right: -10%;
+    top: 56%;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .container {
     width: 91%;
     right: -42%;
-    top: 50%;
-  }
-}
-
-@media screen and (min-width: 780px) and (max-width: 1500px) {
-  .container {
-    width: 70%;
-    right: -20%;
-    top: 50%;
+    top: 56%;
   }
 }
