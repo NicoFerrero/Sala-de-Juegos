@@ -1,8 +1,8 @@
 .container {
   width: 80%;
-  height: 600px;
+  height: 650px;
   position: absolute;
-  top: 50%;
+  top: 54%;
   right: -30%;
   transform: translate(-50%, -50%);
   background-color: rgb(164, 168, 173);
@@ -60,10 +60,27 @@ button {
   right: 50%;
 }
 
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .container {
+    width: 90%;
+    right: -40%;
+    padding-bottom: 20px;
+  }
+
+  .estadisticas {
+    padding: 0 14%;
+  }
+
+  mat-progress-bar {
+    width: 40%;
+    margin: 0 20px;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .container {
-    width: 91%;
-    right: -42%;
+    width: 90%;
+    right: -40%;
   }
 
   .estadisticas {
@@ -92,19 +109,26 @@ button {
   }
 }
 
-@media screen and (min-width: 780px) and (max-width: 1500px) {
-  .container {
-    width: 90%;
-    right: -40%;
-    padding-bottom: 20px;
-  }
-
-  .estadisticas {
-    padding: 0 14%;
-  }
-
+@media screen and (max-width: 768px) {
   mat-progress-bar {
-    width: 40%;
-    margin: 0 20px;
+    display: none;
+  }
+  .estadisticas {
+    padding: 0;
+    margin-left: 15px;
+    width: 100%;
+  }
+  .estadisticas p:nth-child(1) {
+    width: 50%;
+  }
+  .estadisticas p {
+    font-size: 14px;
+  }
+  .flex {
+    justify-content: space-around;
+  }
+  button {
+    font-size: 12px;
+    margin-left: 10px;
   }
 }

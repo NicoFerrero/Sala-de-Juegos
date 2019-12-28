@@ -18,10 +18,26 @@ p {
   right: 50%;
 }
 
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .container {
+    width: 60%;
+    right: 20%;
+  }
+
+  .spinner {
+    right: 45%;
+  }
+
+  p {
+    font-size: 2.5em;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .container {
-    width: 99%;
-    right: 0.5%;
+    width: 89%;
+    top: 19%;
+    right: 5%;
   }
 
   p {
@@ -33,13 +49,11 @@ p {
   }
 }
 
-@media screen and (min-width: 780px) and (max-width: 1500px) {
+@media screen and (max-width: 520px) {
   .container {
-    width: 80%;
-    right: 10%;
-  }
-
-  .spinner {
-    right: 45%;
+    transform: rotate(270deg);
+    width: 125%;
+    top: 33%;
+    right: -8%;
   }
 }

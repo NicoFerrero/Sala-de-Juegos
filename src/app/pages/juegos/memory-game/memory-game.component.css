@@ -20,7 +20,7 @@
 }
 
 span {
-  margin: 0 60px;
+  margin: 0 80px;
 }
 
 .botones {
@@ -63,6 +63,7 @@ img.img-card {
   position: absolute;
   flex-wrap: wrap;
   top: 10%;
+  right: -5%;
 }
 
 @media screen and (max-width: 780px) {
@@ -79,9 +80,13 @@ img.img-card {
   }
 
   .cards-container {
-    right: 0%;
-    width: 80%;
+    right: 20%;
+    width: 44%;
     top: 20%;
+  }
+
+  .cards-container span {
+    margin: 0 20px;
   }
 }
 
@@ -89,12 +94,12 @@ img.img-card {
   .container {
     width: 60%;
     right: -10%;
-    top: 80%;
+    top: 91%;
   }
 
   img.img-card {
     padding: 0.5rem;
-    height: 7rem;
+    height: 8rem;
     width: auto;
   }
 
@@ -102,5 +107,20 @@ img.img-card {
     right: 5%;
     width: 80%;
     top: 15%;
+  }
+  span {
+    margin: 0 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cards-container {
+    right: 10%;
+    width: 65%;
+    top: 15%;
+  }
+
+  span {
+    margin: 0 20px;
   }
 }

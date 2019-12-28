@@ -1,25 +1,33 @@
-import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+import { MatSort } from "@angular/material/sort";
+import { MatPaginator } from "@angular/material/paginator";
 
 @Component({
-  selector: 'app-tabla',
-  templateUrl: './tabla.component.html',
-  styleUrls: ['./tabla.component.css'],
+  selector: "app-tabla",
+  templateUrl: "./tabla.component.html",
+  styleUrls: ["./tabla.component.css"]
 })
 export class TablaComponent implements OnInit, OnChanges {
+  public innerWidth: any;
   @Input() ELEMENT_DATA;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = [
-    'nombre',
-    'adivina_num',
-    'agilidad_ari',
-    'anagrama',
-    'memoria',
-    'ppt',
-    'ttt',
+    "nombre",
+    "adivina_num",
+    "agilidad_ari",
+    "anagrama",
+    "memoria",
+    "ppt",
+    "ttt"
   ];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
   constructor() {}

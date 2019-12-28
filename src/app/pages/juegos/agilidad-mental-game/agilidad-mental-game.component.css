@@ -56,3 +56,9 @@ button {
     right: 10%;
   }
 }
+
+@media screen and (max-width: 500px) {
+  span {
+    margin: 0 30px;
+  }
+}
