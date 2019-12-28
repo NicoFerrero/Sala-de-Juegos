@@ -50,10 +50,13 @@ p {
 }
 
 @media screen and (max-width: 520px) {
+  p {
+    font-size: 1.5rem;
+  }
   .container {
     transform: rotate(270deg);
-    width: 125%;
-    top: 33%;
-    right: -8%;
+    width: 126%;
+    top: 28%;
+    right: -5%;
   }
 }
