@@ -29,37 +29,37 @@
 }
 
 .game1 {
-  background-image: url('../../../assets/anagrama_principal.jpg');
+  background-image: url("../../../assets/anagrama_principal.jpg");
   min-height: 500px;
 }
 
 .game2 {
-  background-image: url('../../../assets/adivinar_principal.jpg');
+  background-image: url("../../../assets/adivinar_principal.jpg");
   min-height: 500px;
 }
 
 .game3 {
-  background-image: url('../../../assets/agilidad_principal.jpg');
+  background-image: url("../../../assets/agilidad_principal.jpg");
   min-height: 500px;
 }
 
 .game4 {
-  background-image: url('../../../assets/ppt_principal.jpg');
+  background-image: url("../../../assets/ppt_principal.jpg");
   min-height: 500px;
 }
 
 .game5 {
-  background-image: url('../../../assets/ttt_principal.jpg');
+  background-image: url("../../../assets/ttt_principal.jpg");
   min-height: 500px;
 }
 
 .game6 {
-  background-image: url('../../../assets/memoria_principal.jpg');
+  background-image: url("../../../assets/memoria_principal.jpg");
   min-height: 500px;
 }
 
 .hero {
-  background-image: url('../../../assets/black-background-chance-close-up-1111597.jpg');
+  background-image: url("../../../assets/black-background-chance-close-up-1111597.jpg");
   min-height: 100vh;
 }
 
@@ -108,5 +108,10 @@ h1 {
   .game5,
   .game6 {
     background-attachment: scroll;
+  }
+
+  p {
+    padding: 8px 7px;
+    margin-top: 36px;
   }
 }
