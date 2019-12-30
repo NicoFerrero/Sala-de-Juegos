@@ -1,7 +1,19 @@
-<div class="container" *ngIf="datos">
-  <p>Tabla de puntuaciones</p>
-  <app-tabla [ELEMENT_DATA]="datos"></app-tabla>
+<div *ngIf="!hideTable">
+  <div class="container" *ngIf="datos">
+    <p>Tabla de puntuaciones</p>
+    <app-tabla [ELEMENT_DATA]="datos"></app-tabla>
+  </div>
 </div>
+<h3
+  class="container"
+  style="text-align: center; transform: translateY(60%);"
+  *ngIf="hideTable"
+>
+  <i class="material-icons" style="font-size: 75px; margin-bottom: 20px;">
+    screen_rotation
+  </i>
+  Para ver la tabla de puntuaciones use el dispositivo apaisado
+</h3>
 <mat-spinner
   class="spinner"
   *ngIf="!datos"

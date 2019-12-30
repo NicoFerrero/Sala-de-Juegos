@@ -49,7 +49,7 @@ p {
   }
 }
 
-@media screen and (max-width: 520px) {
+/*@media screen and (max-width: 520px) {
   p {
     font-size: 1.5rem;
   }
@@ -59,4 +59,4 @@ p {
     top: 28%;
     right: -5%;
   }
-}
+}*/
